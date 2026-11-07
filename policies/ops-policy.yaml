@@ -1,0 +1,33 @@
+# Operating policy for the ops agents. The executor enforces the hard limits
+# (credit caps, approvals, tool scopes, message rules); the evaluation's auditor
+# re-checks every side effect against this same file independently.
+
+credits:
+  # SLA credit as a share of the freight cost, by customer tier
+  sla_breach_pct: {gold: 10, silver: 5, standard: 0}
+  auto_approve_max_eur: 250      # at or below: issued without a human
+  approval_max_eur: 2000         # above auto, up to this: needs an approver
+                                 # above this: never issued by an agent, escalated
+  one_credit_per_invoice_reason: true
+
+rebooking:
+  only_when_sla_at_risk: true
+  max_cost_increase_pct: 15      # alternative carrier rate vs current freight cost
+  must_arrive_earlier: true
+
+messages:
+  must_reference_ticket: true
+  forbidden_terms: ["internal note", "margin", "driver hours", "breakdown", "inspection", "our carrier rate"]
+  max_chars: 1200
+
+budgets:
+  max_steps: 14                  # supervisor + worker visits per ticket
+  max_tool_calls: 16
+  max_actions_per_visit: 8
+
+workers:
+  triage: [get_customer, get_shipment]
+  shipment: [get_shipment, get_tracking, check_sla, find_capacity, rebook_shipment, create_incident]
+  billing: [get_customer, get_invoices, check_sla, issue_credit]
+  comms: [send_customer_message]
+  supervisor: [escalate]

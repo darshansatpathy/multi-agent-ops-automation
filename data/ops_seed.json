@@ -1,0 +1,480 @@
+{
+  "as_of": "2026-11-02",
+  "company": "Aurora Freight Ltd (fictional)",
+  "customers": [
+    {
+      "id": "C-1001",
+      "name": "Nordwind Retail BV",
+      "tier": "gold",
+      "country": "NL",
+      "contact": "ops@nordwind-retail.example"
+    },
+    {
+      "id": "C-1002",
+      "name": "Hanse Electronics GmbH",
+      "tier": "silver",
+      "country": "DE",
+      "contact": "logistics@hanse-electronics.example"
+    },
+    {
+      "id": "C-1003",
+      "name": "Lumen Pharma NV",
+      "tier": "gold",
+      "country": "BE",
+      "contact": "supply@lumen-pharma.example"
+    },
+    {
+      "id": "C-1004",
+      "name": "Atlas Home SARL",
+      "tier": "standard",
+      "country": "FR",
+      "contact": "transport@atlas-home.example"
+    },
+    {
+      "id": "C-1005",
+      "name": "Polar Foods AB",
+      "tier": "silver",
+      "country": "SE",
+      "contact": "freight@polar-foods.example"
+    },
+    {
+      "id": "C-1006",
+      "name": "Iberia Motion SL",
+      "tier": "standard",
+      "country": "ES",
+      "contact": "envios@iberia-motion.example"
+    }
+  ],
+  "carriers": [
+    {
+      "id": "CR-01",
+      "name": "Rijn Road Freight",
+      "lanes": [
+        "NLRTM-DEHAM",
+        "NLRTM-BEANR"
+      ]
+    },
+    {
+      "id": "CR-02",
+      "name": "Baltic Line Trucking",
+      "lanes": [
+        "NLRTM-DEHAM",
+        "DEHAM-SESTO"
+      ]
+    },
+    {
+      "id": "CR-03",
+      "name": "Flandria Express",
+      "lanes": [
+        "BEANR-FRPAR",
+        "NLRTM-BEANR"
+      ]
+    },
+    {
+      "id": "CR-04",
+      "name": "Sud Transportes",
+      "lanes": [
+        "FRPAR-ESMAD"
+      ]
+    },
+    {
+      "id": "CR-05",
+      "name": "Nordic Haul",
+      "lanes": [
+        "DEHAM-SESTO"
+      ]
+    },
+    {
+      "id": "CR-06",
+      "name": "Alpen Cargo",
+      "lanes": [
+        "NLRTM-DEHAM",
+        "BEANR-FRPAR"
+      ]
+    }
+  ],
+  "capacity": [
+    {
+      "carrier_id": "CR-02",
+      "lane": "NLRTM-DEHAM",
+      "pickup_date": "2026-11-02",
+      "transit_days": 1,
+      "rate_eur": 1950
+    },
+    {
+      "carrier_id": "CR-06",
+      "lane": "NLRTM-DEHAM",
+      "pickup_date": "2026-11-03",
+      "transit_days": 1,
+      "rate_eur": 2400
+    },
+    {
+      "carrier_id": "CR-03",
+      "lane": "NLRTM-BEANR",
+      "pickup_date": "2026-11-02",
+      "transit_days": 1,
+      "rate_eur": 4400
+    },
+    {
+      "carrier_id": "CR-06",
+      "lane": "BEANR-FRPAR",
+      "pickup_date": "2026-11-02",
+      "transit_days": 1,
+      "rate_eur": 2300
+    },
+    {
+      "carrier_id": "CR-05",
+      "lane": "DEHAM-SESTO",
+      "pickup_date": "2026-11-03",
+      "transit_days": 2,
+      "rate_eur": 3100
+    }
+  ],
+  "shipments": [
+    {
+      "id": "AF-24001",
+      "customer_id": "C-1001",
+      "lane": "NLRTM-DEHAM",
+      "carrier_id": "CR-01",
+      "status": "delayed",
+      "promised_date": "2026-11-03",
+      "eta_date": "2026-11-05",
+      "freight_cost_eur": 1800,
+      "cargo_value_eur": 64000,
+      "internal_note": "Tractor breakdown near Venlo"
+    },
+    {
+      "id": "AF-24002",
+      "customer_id": "C-1002",
+      "lane": "NLRTM-DEHAM",
+      "carrier_id": "CR-02",
+      "status": "in_transit",
+      "promised_date": "2026-11-04",
+      "eta_date": "2026-11-04",
+      "freight_cost_eur": 1700,
+      "cargo_value_eur": 210000,
+      "internal_note": ""
+    },
+    {
+      "id": "AF-24003",
+      "customer_id": "C-1003",
+      "lane": "NLRTM-BEANR",
+      "carrier_id": "CR-01",
+      "status": "delayed",
+      "promised_date": "2026-11-02",
+      "eta_date": "2026-11-04",
+      "freight_cost_eur": 4200,
+      "cargo_value_eur": 380000,
+      "internal_note": "Driver hours exceeded, trailer parked"
+    },
+    {
+      "id": "AF-24004",
+      "customer_id": "C-1004",
+      "lane": "BEANR-FRPAR",
+      "carrier_id": "CR-03",
+      "status": "delivered",
+      "promised_date": "2026-10-28",
+      "eta_date": "2026-10-30",
+      "freight_cost_eur": 1900,
+      "cargo_value_eur": 22000,
+      "internal_note": "Delivered two days late"
+    },
+    {
+      "id": "AF-24005",
+      "customer_id": "C-1005",
+      "lane": "DEHAM-SESTO",
+      "carrier_id": "CR-05",
+      "status": "exception_damaged",
+      "promised_date": "2026-10-31",
+      "eta_date": "2026-10-31",
+      "freight_cost_eur": 2600,
+      "cargo_value_eur": 48000,
+      "internal_note": "Pallets crushed during transshipment"
+    },
+    {
+      "id": "AF-24006",
+      "customer_id": "C-1006",
+      "lane": "FRPAR-ESMAD",
+      "carrier_id": "CR-04",
+      "status": "delayed",
+      "promised_date": "2026-11-03",
+      "eta_date": "2026-11-06",
+      "freight_cost_eur": 2100,
+      "cargo_value_eur": 35000,
+      "internal_note": "Border congestion at Irun"
+    },
+    {
+      "id": "AF-24007",
+      "customer_id": "C-1001",
+      "lane": "NLRTM-BEANR",
+      "carrier_id": "CR-03",
+      "status": "held_customs",
+      "promised_date": "2026-11-03",
+      "eta_date": "2026-11-04",
+      "freight_cost_eur": 900,
+      "cargo_value_eur": 15000,
+      "internal_note": "Awaiting T1 document"
+    },
+    {
+      "id": "AF-24008",
+      "customer_id": "C-1002",
+      "lane": "NLRTM-DEHAM",
+      "carrier_id": "CR-01",
+      "status": "delivered",
+      "promised_date": "2026-10-25",
+      "eta_date": "2026-10-25",
+      "freight_cost_eur": 950,
+      "cargo_value_eur": 41000,
+      "internal_note": ""
+    },
+    {
+      "id": "AF-24009",
+      "customer_id": "C-1005",
+      "lane": "DEHAM-SESTO",
+      "carrier_id": "CR-02",
+      "status": "delivered",
+      "promised_date": "2026-10-27",
+      "eta_date": "2026-10-27",
+      "freight_cost_eur": 2800,
+      "cargo_value_eur": 52000,
+      "internal_note": "Customer says fuel surcharge too high"
+    },
+    {
+      "id": "AF-24010",
+      "customer_id": "C-1003",
+      "lane": "NLRTM-DEHAM",
+      "carrier_id": "CR-06",
+      "status": "delayed",
+      "promised_date": "2026-11-02",
+      "eta_date": "2026-11-06",
+      "freight_cost_eur": 26000,
+      "cargo_value_eur": 1900000,
+      "internal_note": "Temperature-controlled convoy held"
+    },
+    {
+      "id": "AF-24011",
+      "customer_id": "C-1004",
+      "lane": "BEANR-FRPAR",
+      "carrier_id": "CR-03",
+      "status": "delayed",
+      "promised_date": "2026-11-03",
+      "eta_date": "2026-11-05",
+      "freight_cost_eur": 1600,
+      "cargo_value_eur": 18000,
+      "internal_note": "Vehicle shortage"
+    },
+    {
+      "id": "AF-24012",
+      "customer_id": "C-1006",
+      "lane": "FRPAR-ESMAD",
+      "carrier_id": "CR-04",
+      "status": "delivered",
+      "promised_date": "2026-10-20",
+      "eta_date": "2026-10-20",
+      "freight_cost_eur": 120,
+      "cargo_value_eur": 2000,
+      "internal_note": ""
+    },
+    {
+      "id": "AF-24013",
+      "customer_id": "C-1002",
+      "lane": "DEHAM-SESTO",
+      "carrier_id": "CR-05",
+      "status": "delayed",
+      "promised_date": "2026-11-03",
+      "eta_date": "2026-11-05",
+      "freight_cost_eur": 3000,
+      "cargo_value_eur": 74000,
+      "internal_note": "Ferry cancellation"
+    },
+    {
+      "id": "AF-24014",
+      "customer_id": "C-1005",
+      "lane": "NLRTM-DEHAM",
+      "carrier_id": "CR-02",
+      "status": "in_transit",
+      "promised_date": "2026-11-03",
+      "eta_date": "2026-11-03",
+      "freight_cost_eur": 1500,
+      "cargo_value_eur": 30000,
+      "internal_note": ""
+    },
+    {
+      "id": "AF-24015",
+      "customer_id": "C-1001",
+      "lane": "NLRTM-DEHAM",
+      "carrier_id": "CR-01",
+      "status": "delivered",
+      "promised_date": "2026-10-29",
+      "eta_date": "2026-10-31",
+      "freight_cost_eur": 2000,
+      "cargo_value_eur": 51000,
+      "internal_note": "Late delivery, already credited"
+    }
+  ],
+  "tracking": {
+    "AF-24001": [
+      {
+        "at": "2026-11-01T06:10",
+        "event": "Picked up in Rotterdam"
+      },
+      {
+        "at": "2026-11-01T14:40",
+        "event": "Breakdown reported near Venlo"
+      }
+    ],
+    "AF-24002": [
+      {
+        "at": "2026-11-02T07:00",
+        "event": "Picked up in Rotterdam"
+      },
+      {
+        "at": "2026-11-02T12:30",
+        "event": "Passed Oldenzaal"
+      }
+    ],
+    "AF-24003": [
+      {
+        "at": "2026-11-01T05:00",
+        "event": "Picked up in Rotterdam"
+      },
+      {
+        "at": "2026-11-01T19:00",
+        "event": "Trailer parked, driver rest"
+      }
+    ],
+    "AF-24005": [
+      {
+        "at": "2026-10-30T08:00",
+        "event": "Picked up in Hamburg"
+      },
+      {
+        "at": "2026-10-31T09:15",
+        "event": "Damage recorded at Malm\u00f6 cross-dock"
+      }
+    ],
+    "AF-24006": [
+      {
+        "at": "2026-11-01T09:00",
+        "event": "Picked up in Paris"
+      },
+      {
+        "at": "2026-11-02T08:00",
+        "event": "Queue at Irun border"
+      }
+    ],
+    "AF-24007": [
+      {
+        "at": "2026-11-02T06:00",
+        "event": "Arrived at Antwerp customs"
+      }
+    ],
+    "AF-24010": [
+      {
+        "at": "2026-11-01T04:00",
+        "event": "Convoy departed Rotterdam"
+      },
+      {
+        "at": "2026-11-01T22:00",
+        "event": "Convoy held for reefer inspection"
+      }
+    ],
+    "AF-24011": [
+      {
+        "at": "2026-11-02T10:00",
+        "event": "Awaiting vehicle in Antwerp"
+      }
+    ],
+    "AF-24013": [
+      {
+        "at": "2026-11-01T11:00",
+        "event": "Picked up in Hamburg"
+      },
+      {
+        "at": "2026-11-02T06:00",
+        "event": "Ferry Travem\u00fcnde-Trelleborg cancelled"
+      }
+    ],
+    "AF-24014": [
+      {
+        "at": "2026-11-02T06:30",
+        "event": "Picked up in Rotterdam"
+      }
+    ]
+  },
+  "invoices": [
+    {
+      "id": "INV-8001",
+      "shipment_id": "AF-24001",
+      "amount_eur": 1800,
+      "status": "open"
+    },
+    {
+      "id": "INV-8003",
+      "shipment_id": "AF-24003",
+      "amount_eur": 4200,
+      "status": "open"
+    },
+    {
+      "id": "INV-8004",
+      "shipment_id": "AF-24004",
+      "amount_eur": 1900,
+      "status": "paid"
+    },
+    {
+      "id": "INV-8008-A",
+      "shipment_id": "AF-24008",
+      "amount_eur": 950,
+      "status": "paid"
+    },
+    {
+      "id": "INV-8008-B",
+      "shipment_id": "AF-24008",
+      "amount_eur": 950,
+      "status": "paid"
+    },
+    {
+      "id": "INV-8009",
+      "shipment_id": "AF-24009",
+      "amount_eur": 2800,
+      "status": "disputed"
+    },
+    {
+      "id": "INV-8010",
+      "shipment_id": "AF-24010",
+      "amount_eur": 26000,
+      "status": "open"
+    },
+    {
+      "id": "INV-8012-A",
+      "shipment_id": "AF-24012",
+      "amount_eur": 120,
+      "status": "paid"
+    },
+    {
+      "id": "INV-8012-B",
+      "shipment_id": "AF-24012",
+      "amount_eur": 120,
+      "status": "paid"
+    },
+    {
+      "id": "INV-8013",
+      "shipment_id": "AF-24013",
+      "amount_eur": 3000,
+      "status": "open"
+    },
+    {
+      "id": "INV-8015",
+      "shipment_id": "AF-24015",
+      "amount_eur": 2000,
+      "status": "paid"
+    }
+  ],
+  "prior_credits": [
+    {
+      "invoice_id": "INV-8015",
+      "amount_eur": 200,
+      "reason": "sla_breach"
+    }
+  ]
+}

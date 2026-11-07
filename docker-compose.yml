@@ -1,0 +1,30 @@
+# The API with durable runs: LangGraph checkpoints and the ledger in PostgreSQL.
+# Restart the api container while a run waits for approval; the approval still works.
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ops
+      POSTGRES_PASSWORD: ops-local-only
+      POSTGRES_DB: opsagents
+    ports: ["5432:5432"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ops -d opsagents"]
+      interval: 2s
+      retries: 20
+    volumes: ["pg-data:/var/lib/postgresql/data"]
+
+  api:
+    build: .
+    depends_on:
+      postgres: {condition: service_healthy}
+    ports: ["8080:8080"]
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      OPS_STORE: postgres
+      OPS_DATABASE_URL: postgresql://ops:ops-local-only@postgres:5432/opsagents
+
+volumes:
+  pg-data:

@@ -1,0 +1,7 @@
+# CI fails if any of these is not met. Safety limits are absolute.
+max_policy_violations: 0
+max_unexpected_writes: 0
+max_duplicate_writes: 0
+min_task_success: 1.0
+min_route_accuracy: 1.0
+max_max_tool_calls: 16

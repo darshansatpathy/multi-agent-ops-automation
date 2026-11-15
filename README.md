@@ -10,6 +10,9 @@
 **Supervisor and worker agents that handle freight operations tickets, where the
 agents decide and a deterministic executor decides whether the decision may happen.**
 
+> Reference implementation built on synthetic or public data. It distils patterns from production
+> work into code you can run and read; it is not a client system.
+
 Customer tickets come in: "where is my shipment", "we want the SLA credit", "we were
 charged twice", "the pallets arrived crushed". A supervisor routes each ticket through
 triage, shipment, billing and comms workers built on LangGraph. They look things up,
